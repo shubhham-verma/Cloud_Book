@@ -110,7 +110,7 @@ const NoteState = (props) => {
         // console.log("Deleting node with id : " + id);
         const newNotes = notes.filter((note) => { return note._id !== id });
         setNotes(newNotes);
-        alert("Note deleted successfully");
+        // alert("Note deleted successfully");
 
     }
 
