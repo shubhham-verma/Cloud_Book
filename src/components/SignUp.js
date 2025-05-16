@@ -48,7 +48,7 @@ const SignUp = () => {
   }
   return (
     <>
-      <label htmlFor="message" className="block m-8 text-2xl text-center font-normal text-yellow-900">Sign-Up to use Cloud_Book ( ͡• ͜ʖ ͡• ) </label>
+      <label htmlFor="message" className="block m-8 text-2xl text-center font-normal text-yellow-900">Sign-Up to use Cloud_Book </label>
       <div className="flex justify-center m-10">
         <form onSubmit={handle_submit} className=' w-1/3 border-spacing-10 border-4 rounded-xl border-color_4 p-6'>
           <div className="mb-6 ">
