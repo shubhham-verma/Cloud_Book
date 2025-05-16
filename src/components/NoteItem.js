@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import TrashCanIcon from './TrashCanIcon.png';
 import EditIcon from './EditIcon.png';
 import noteContext from '../context/notes/noteContext';
-import { EditNote } from './EditNote';
+// import { EditNote } from './EditNote';
 
 
 
@@ -74,10 +74,10 @@ const NoteItem = (props) => {
                                 <input type="text" id="e_title" name='e_title' rows="4" className="block p-2.5 w-full mx-auto text-lg h-[7vh] font-thin text-gray-900  rounded-lg border border-gray-500 focus:ring-blue-500 focus:border-blue-500" placeholder="Add a title to your note...." onChange={onChange} value={notes.e_title} ></input>
                             </div>
                             <br />
-                            <div className="e_tag">
+                            {/* <div className="e_tag">
                                 <input type="text" id="e_tag" name='e_tag' rows="4" className="block p-2.5  w-full mx-auto text-lg h-[7vh] font-thin text-gray-900  rounded-lg border border-gray-500 focus:ring-blue-500 focus:border-blue-500" placeholder="Add a tag to your note...." onChange={onChange} value={notes.e_tag}></input>
                             </div>
-                            <br />
+                            <br /> */}
                             <div className="e_description">
                                 <input type="text" id="e_description" name='e_description' rows="4" className="block p-2.5 w-full mx-auto text-lg h-[20vh] font-thin text-gray-900  rounded-lg border border-gray-500 focus:ring-blue-500 focus:border-blue-500" placeholder="Start typing your tales...." onChange={onChange} value={notes.e_description} ></input>
                             </div>
