@@ -31,7 +31,7 @@ export const Notes_2 = () => {
             <div className='flex justify-center'>
                 <div className="main flex flex-col justify-between w-5/6">
 
-                    <label htmlFor="message" className="block m-8 text-2xl mx-auto font-normal text-yellow-900">Your Notes Here ༼ つ ◕_◕ ༽つ </label>
+                    <label htmlFor="message" className="block m-8 text-2xl mx-auto font-normal text-yellow-900">Your Notes Here  </label>
 
                     {notes.length === 0 && <div className='flex justify-center text-xs '>No notes to display here.....</div>}
 

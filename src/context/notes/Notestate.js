@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NoteContext from './noteContext';
 
 const NoteState = (props) => {
-    const host = "http://localhost:5000";
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     const notes_initial = [];
 
     const [notes, setNotes] = useState(notes_initial)
@@ -11,7 +11,7 @@ const NoteState = (props) => {
     const getNote = async () => {
         // !! API call
         {
-            const url = `${host}/api/notes/fetch_notes`;
+            const url = `${backendUrl}/api/notes/fetch_notes`;
             const response = await fetch(url, {
                 method: 'GET',
                 mode: 'cors',
@@ -31,7 +31,7 @@ const NoteState = (props) => {
     // ?? ADD NOTE
     const addNote = async (title, description, tag) => {
         // !! API call
-        const url = `${host}/api/notes/add_notes`;
+        const url = `${backendUrl}/api/notes/add_notes`;
         {
             const response = await fetch(url, {
                 method: 'POST',
@@ -55,7 +55,7 @@ const NoteState = (props) => {
 
 
         // !! API call
-        const url = `${host}/api/notes/update_notes/${id}`;
+        const url = `${backendUrl}/api/notes/update_notes/${id}`;
         {
             const response = await fetch(url, {
                 method: 'PUT',
@@ -89,8 +89,10 @@ const NoteState = (props) => {
 
     // ?? DELETE NOTE
     const deleteNote = async (id) => {
+
+        if (!window.confirm("Are you sure you want to delete this note?")) return;
         // !! API call
-        const url = `${host}/api/notes/delete_notes/${id}`;
+        const url = `${backendUrl}/api/notes/delete_notes/${id}`;
         {
             const response = await fetch(url, {
                 method: 'DELETE',
@@ -108,6 +110,7 @@ const NoteState = (props) => {
         // console.log("Deleting node with id : " + id);
         const newNotes = notes.filter((note) => { return note._id !== id });
         setNotes(newNotes);
+        alert("Note deleted successfully");
 
     }
 

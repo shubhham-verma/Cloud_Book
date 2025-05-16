@@ -24,7 +24,7 @@ export const AddNote = () => {
 
             <div className="newNote">
                 <div className="heading flex justify-around ">
-                    <label htmlFor="message" className="block m-8 text-2xl font-normal text-yellow-900">Make a new Note (✿◠‿◠) </label>
+                    <label htmlFor="message" className="block m-8 text-2xl font-normal text-yellow-900">Make a new Note  </label>
                 </div>
                 {/* <br /> */}
                 <div className="title">
@@ -32,7 +32,7 @@ export const AddNote = () => {
                 </div>
                 <br />
                 <div className="tag">
-                    <textarea id="tag" name='tag' rows="4" className="block p-2.5 w-1/3 mx-auto text-lg h-[7vh] font-thin text-gray-900  rounded-lg border border-gray-500 focus:ring-blue-500 focus:border-blue-500" placeholder="Add a tag to your note...." onChange={onChange} value={note.tag}></textarea>
+                    {/* <textarea id="tag" name='tag' rows="4" className="block p-2.5 w-1/3 mx-auto text-lg h-[7vh] font-thin text-gray-900  rounded-lg border border-gray-500 focus:ring-blue-500 focus:border-blue-500" placeholder="Add a tag to your note...." onChange={onChange} value={note.tag}></textarea> */}
                 </div>
                 <br />
                 <div className="description">

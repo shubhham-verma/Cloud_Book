@@ -14,32 +14,41 @@ const Login = () => {
 
     const handle_submit = async (event) => {
         event.preventDefault();
-        const url = `http://localhost:5000/api/auth/login`;
-        const response = await fetch(url, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email: credenitals.email, password: credenitals.password })
-        })
-        const json = await response.json();
-        console.log(json);
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+        const url = `${backendUrl}/api/auth/login`;
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: credenitals.email, password: credenitals.password })
+            })
 
-        if (json.success) {
-            // save the auth token
-            sessionStorage.setItem('token', json.auth_token);
+            const json = await response.json();
+            console.log(json);
 
-            // todo REDIRECT THE USER TO THE HOME PAGE
-            navigate('/');
+            if (json.success) {
+                // save the auth token
+                sessionStorage.setItem('token', json.auth_token);
+
+                // todo REDIRECT THE USER TO THE HOME PAGE
+                navigate('/');
+            }
+            else {
+                alert(json.error);
+            }
         }
-        else {
-            alert(json.error);
+        catch (error) {
+            console.log("Error in login", error);
+            alert("Error in login");
         }
+
     }
     return (
         <>
-            <label htmlFor="message" className="block m-8 text-2xl text-center font-normal text-yellow-900">Login to see your notes (❁´◡`❁) </label>
+            <label htmlFor="message" className="block m-8 text-2xl text-center font-normal text-yellow-900">Login to see your notes  </label>
             <div className="flex justify-center m-10">
                 <form onSubmit={handle_submit} className=' w-1/3 border-spacing-10 border-4 rounded-xl border-color_4 p-6'>
                     <div className="mb-6 ">
@@ -56,7 +65,7 @@ const Login = () => {
                     <div className="flex justify-between">
                         <button type="submit" className="text-black bg-color_2 border-2 border-color_4 hover:bg-color_4 hover:text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center md:mr-0" >Submit</button>
                         <div className="mx-4">
-                            <div className="text-sm text-center p-1">New a user ? </div>
+                            <div className="text-sm text-center p-1">New user ? </div>
                             <Link to='/signup' className="text-sm text-center p-1 hover:font-bold">Sign-Up</Link>
                         </div>
                     </div>

@@ -19,7 +19,8 @@ const SignUp = () => {
     else {
 
       event.preventDefault();
-      const url = `http://localhost:5000/api/auth/createuser`;
+      const backendUrl = process.env.REACT_APP_BACKEND_URL;
+      const url = `${backendUrl}/api/auth/createuser`;
       const response = await fetch(url, {
         method: 'POST',
         mode: 'cors',
