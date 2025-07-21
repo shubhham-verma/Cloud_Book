@@ -19,12 +19,7 @@ export const Notes_2 = () => {
         // eslint-disable-next-line
     }, [])
 
-    // !! updatenote stuff 
-    const updatenote = (currentNote) => {
-        // console.log("update note run");
-
-    }
-
+    
     return (
 
         <>
@@ -38,7 +33,7 @@ export const Notes_2 = () => {
                     <div className=" grid grid-cols-3" >
 
                         {notes.map((note) => {
-                            return <Noteitem key={note._id} updatenote={updatenote} note={note} visibility='hidden' />
+                            return <Noteitem key={note._id} note={note} visibility='hidden' />
                         })}
                     </div>
                 </div>

@@ -84,6 +84,7 @@ const NoteState = (props) => {
         }
 
         setNotes(newNote);
+        return newNote;
     }
 
 
