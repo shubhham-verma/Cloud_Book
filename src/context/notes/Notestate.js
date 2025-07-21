@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import NoteContext from './noteContext';
 
 const NoteState = (props) => {
@@ -10,19 +10,19 @@ const NoteState = (props) => {
     // ?? GET NOTE
     const getNote = async () => {
         // !! API call
-        {
-            const url = `${backendUrl}/api/notes/fetch_notes`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'auth-token': sessionStorage.getItem('token')
-                }
-            })
-            const json = await response.json();
-            setNotes(json);
-        }
+
+        const url = `${backendUrl}/api/notes/fetch_notes`;
+        const response = await fetch(url, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': sessionStorage.getItem('token')
+            }
+        })
+        const json = await response.json();
+        setNotes(json);
+
 
         // setNotes(notes.concat(note));
     }
@@ -45,6 +45,7 @@ const NoteState = (props) => {
 
             const note = await response.json();
             setNotes(notes.concat(note));
+            return note;
         }
     }
 
@@ -66,7 +67,6 @@ const NoteState = (props) => {
                 },
                 body: JSON.stringify({ title, description, tag })
             });
-            const json = response.json();
         }
 
         // !! function to edit note
